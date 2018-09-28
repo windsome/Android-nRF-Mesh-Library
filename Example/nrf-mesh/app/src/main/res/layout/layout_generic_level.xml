@@ -17,17 +17,6 @@
         app:logo="@drawable/ic_subscribe_black_alpha_24dp"
         app:title="@string/title_generic_level_controls"
         app:titleMarginStart="@dimen/toolbar_title_margin"/>
-    
-    <android.support.v4.widget.ContentLoadingProgressBar
-        android:id="@+id/transition_progress_bar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:indeterminate="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/node_controls_tool_bar"
-        android:visibility="gone"/>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/container_controls"
@@ -41,98 +30,6 @@
         tools:visibility="visible">
 
         <TextView
-            android:id="@+id/transition"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:paddingStart="@dimen/item_padding_start"
-            android:paddingEnd="@dimen/item_padding_end"
-            android:textSize="18sp"
-            android:text="@string/transition_time"
-            android:gravity="start"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/transition_seekbar"
-            app:layout_constraintStart_toStartOf="@id/transition_seekbar"
-            app:layout_constraintEnd_toStartOf="@id/transition_time"/>
-
-        <TextView
-            android:id="@+id/transition_time"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:gravity="end"
-            android:paddingEnd="@dimen/item_padding_end"
-            android:paddingStart="@dimen/item_padding_start"
-            android:text="0 ms"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@id/transition_seekbar"
-            app:layout_constraintStart_toEndOf="@id/transition"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="HardcodedText"/>
-
-        <SeekBar
-            android:id="@+id/transition_seekbar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            app:layout_constraintTop_toBottomOf="@id/transition"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <TextView
-            android:id="@+id/delay"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:paddingStart="@dimen/item_padding_start"
-            android:paddingEnd="@dimen/item_padding_end"
-            android:textSize="18sp"
-            android:text="@string/generic_on_off_step_delay"
-            android:gravity="start"
-            app:layout_constraintTop_toBottomOf="@id/transition_seekbar"
-            app:layout_constraintStart_toStartOf="@id/delay_seekbar"
-            app:layout_constraintEnd_toStartOf="@id/transition_time"/>
-
-        <TextView
-            android:id="@+id/delay_time"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:paddingStart="@dimen/item_padding_start"
-            android:paddingEnd="@dimen/item_padding_end"
-            android:textSize="18sp"
-            android:text="0 ms"
-            android:gravity="end"
-            app:layout_constraintTop_toBottomOf="@id/transition_seekbar"
-            app:layout_constraintStart_toStartOf="@id/delay_seekbar"
-            app:layout_constraintEnd_toEndOf="@id/transition_seekbar"
-            tools:ignore="HardcodedText"/>
-
-        <SeekBar
-            android:id="@+id/delay_seekbar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            app:layout_constraintTop_toBottomOf="@id/delay"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-        <TextView
             android:id="@+id/title_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -144,8 +41,8 @@
             android:textSize="18sp"
             android:text="@string/generic_level"
             android:gravity="start"
-            app:layout_constraintTop_toBottomOf="@id/delay_seekbar"
-            app:layout_constraintStart_toStartOf="@id/delay_seekbar"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
             android:id="@+id/level"
@@ -159,8 +56,8 @@
             android:textSize="18sp"
             android:text="0%"
             android:gravity="end"
-            app:layout_constraintTop_toBottomOf="@id/delay_seekbar"
-            app:layout_constraintEnd_toEndOf="@id/delay_seekbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="HardcodedText"/>
 
         <SeekBar

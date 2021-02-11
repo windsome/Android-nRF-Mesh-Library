@@ -189,6 +189,8 @@ public class NodeConfigurationActivity extends BaseActivity implements
             } else {
                 defaultTtlSummary.setText(R.string.unknown);
             }
+
+            binding.switchExclude.setChecked(meshNode.isExcluded());
         });
 
         binding.actionGetCompositionData.setOnClickListener(v -> {
@@ -227,6 +229,12 @@ public class NodeConfigurationActivity extends BaseActivity implements
             final DialogFragmentProxySet resetNodeFragment = DialogFragmentProxySet.
                     newInstance(getString(R.string.title_proxy_state_settings), message, !mProxyState);
             resetNodeFragment.show(getSupportFragmentManager(), null);
+        });
+
+        binding.switchExclude.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(buttonView.isPressed()){
+                mViewModel.getSelectedMeshNode().getValue().setExcluded(isChecked);
+            }
         });
 
         binding.actionResetNode.setOnClickListener(v -> {

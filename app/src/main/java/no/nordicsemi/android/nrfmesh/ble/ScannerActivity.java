@@ -221,12 +221,17 @@ public class ScannerActivity extends AppCompatActivity implements
                 }
 
                 if (state.isEmpty()) {
-                    binding.noDevices.getRoot().setVisibility(View.VISIBLE);
-
                     if (!Utils.isLocationRequired(this) || Utils.isLocationEnabled(this)) {
+                        binding.noDevices.getRoot().setVisibility(View.VISIBLE);
                         binding.noLocationPermission.getRoot().setVisibility(View.INVISIBLE);
                     } else {
-                        binding.noLocationPermission.getRoot().setVisibility(View.VISIBLE);
+                        binding.noDevices.noLocation.setVisibility(View.GONE);
+                        if (!Utils.isLocationEnabled(this)) {
+                            binding.noDevices.noLocation.setVisibility(View.VISIBLE);
+                            binding.noDevices.getRoot().setVisibility(View.VISIBLE);
+                        } else {
+                            binding.noLocationPermission.getRoot().setVisibility(View.VISIBLE);
+                        }
                     }
                 } else {
                     binding.noDevices.getRoot().setVisibility(View.GONE);

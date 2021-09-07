@@ -91,7 +91,7 @@
                     android:id="@+id/unicast_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Address:"
+                    android:text="@string/unicast"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                     android:textColor="?android:textColorSecondary"
                     app:layout_constraintStart_toStartOf="parent"

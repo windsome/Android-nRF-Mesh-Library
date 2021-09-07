@@ -21,292 +21,292 @@
   -->
 
 <resources>
-    <string name="app_name">nRF Mesh</string>
+    <string name="app_name">蓝牙MESH</string>
     <string name="feature_name">Mesh</string>
-    <string name="title_scanner">Scanner</string>
-    <string name="sub_title_scanning_nodes">Looking for unprovisioned proxy nodes…</string>
-    <string name="sub_title_scanning_proxy_node">Looking for provisioned proxy nodes…</string>
+    <string name="title_scanner">扫描</string>
+    <string name="sub_title_scanning_nodes">寻找未配置的代理节点…</string>
+    <string name="sub_title_scanning_proxy_node">寻找已配置的代理节点…</string>
 
-    <string name="unknown_device">Unknown Device</string>
-    <string name="state">On Off State:</string>
-    <string name="button_unknown">UNKNOWN</string>
+    <string name="unknown_device">未知设备</string>
+    <string name="state">开关状态:</string>
+    <string name="button_unknown">未知</string>
 
-    <string name="location_permission_title">LOCATION PERMISSION REQUIRED</string>
-    <string name="location_permission_info">From Android 6.0 Marshmallow onwards the application requires Location permission in order to scan for Bluetooth Low Energy devices.
-      \n\nThis is because Bluetooth LE beacons, for example iBeacons or Eddystone, may be used to determine the phone\'s and user\'s location.
-        <b>nRF Mesh Provisioner</b> will not use this information in any way.</string>
-    <string name="location_permission_action">Grant permission</string>
-    <string name="location_permission_settings">Settings</string>
+    <string name="location_permission_title">需要开启定位服务</string>
+    <string name="location_permission_info">从Android 6.0 Marshmallow开始，应用程序需要位置权限来扫描蓝牙低能耗设备.
+      \n\n这是因为蓝牙LE信标，例如iBeacons或Eddystone，可以用来确定手机和用户的位置.
+        <b>本应用</b> 不会以任何方式使用这些信息.</string>
+    <string name="location_permission_action">开启权限</string>
+    <string name="location_permission_settings">设置</string>
 
-    <string name="bluetooth_disabled_title">BLUETOOTH DISABLED</string>
-    <string name="bluetooth_disabled_info">The Bluetooth adapter is turned off. Click the button below to enable it.</string>
-    <string name="bluetooth_disabled_action">Enable</string>
+    <string name="bluetooth_disabled_title">蓝牙未开启</string>
+    <string name="bluetooth_disabled_info">蓝牙适配器未开启. 请点击下面按钮开启.</string>
+    <string name="bluetooth_disabled_action">开启</string>
 
-    <string name="unprovisioned_node_guide_title">CAN\'T SEE YOUR NODE?</string>
-    <string name="unprovisioned_node_guide_info">1. Make sure the DK is <b>turned on</b> and is connected to a power source using a micro USB cable or a coin cell is plugged in.
-        \n\n2. Make sure the <b>relevant</b> firmware and SoftDevice are flashed.</string>
-    <string name="unprovisioned_node_guide_location_info">3. Location is turned off. Some Android phones require it enabled in order to scan for Bluetooth LE devices.
-		If you are sure your Node is advertising and it doesn\'t show up here, click the button below to enable Location.</string>
-    <string name="unprovisioned_node_guide_location_action">Enable</string>
+    <string name="unprovisioned_node_guide_title">看不到您的节点?</string>
+    <string name="unprovisioned_node_guide_info">1. 确保开发套件(DK)已<b>打开</b>并使用USB电缆连接到电源或插入纽扣电池.
+        \n\n2. 确保<b>相关</b>固件已刷入.</string>
+    <string name="unprovisioned_node_guide_location_info">3. 位置服务已关闭。一些Android手机需要启用它才能扫描蓝牙LE设备。
+		如果你确定你的节点正在广播消息，但它没有显示在这里，点击下面的按钮启用位置服务.</string>
+    <string name="unprovisioned_node_guide_location_action">开启</string>
 
-    <string name="state_connecting">Connecting…</string>
+    <string name="state_connecting">连接中…</string>
 
     <string name="yes">YES</string>
     <string name="no">NO</string>
 
-    <string name="confirm">Confirm</string>
-    <string name="cancel">Cancel</string>
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
 
     <!--Output oob actions-->
-    <string name="beep">Beep</string>
-    <string name="blink">Blink</string>
-    <string name="vibrate">Vibrate</string>
-    <string name="output_numeric">Output Numeric</string>
-    <string name="output_alphanumeric">Output Alphanumeric</string>
+    <string name="beep">蜂鸣声</string>
+    <string name="blink">闪烁</string>
+    <string name="vibrate">震动</string>
+    <string name="output_numeric">输出数字</string>
+    <string name="output_alphanumeric">输出字母</string>
 
     <!--Input oob actions-->
     <string name="push">Push</string>
-    <string name="input_numeric">Input Number</string>
-    <string name="input_alphanumeric">Input Alphanumeric</string>
-    <string name="title_select_output_oob">Select an Output OOB Action</string>
-    <string name="title_select_input_oob">Select an Input OOB Action</string>
+    <string name="input_numeric">输入数字</string>
+    <string name="input_alphanumeric">输入字母</string>
+    <string name="title_select_output_oob">选择一个OOB输出行为</string>
+    <string name="title_select_input_oob">选择一个OOB输入行为</string>
     <string name="hint_static_oob">e.g. 00112233445566778899001122334455</string>
     <string name="hint_numeric_action">e.g. 5</string>
     <string name="hint_numeric">e.g. 019655</string>
     <string name="hint_alpha_numeric">e.g. 123ABC</string>
-    <string name="error_empty_pin">Error, authentication value cannot be empty!</string>
-    <string name="error_invalid_static_oob">Error, static oob value must be 128 bits!</string>
+    <string name="error_empty_pin">错误, 认证值不能为空!</string>
+    <string name="error_invalid_static_oob">错误, 静态oob值必须为128位!</string>
 
-    <string name="title_select_oob">Select OOB Type</string>
-    <string name="public_key_information_available">Public Key information available</string>
-    <string name="public_key_information_unavailable">Public Key information unavailable</string>
-    <string name="static_oob_information_available">Static OOB information available</string>
-    <string name="static_oob_information_unavailable">Static OOB information unavailable</string>
-    <string name="output_oob_actions_unavailable">Output OOB actions unavailable</string>
-    <string name="input_oob_actions_unavailable">Input OOB actions unavailable</string>
+    <string name="title_select_oob">选择OOB类型</string>
+    <string name="public_key_information_available">公钥信息可用</string>
+    <string name="public_key_information_unavailable">公钥信息不可用</string>
+    <string name="static_oob_information_available">静态OOB信息可用</string>
+    <string name="static_oob_information_unavailable">静态OOB信息不可用</string>
+    <string name="output_oob_actions_unavailable">输出OOB行为不可用</string>
+    <string name="input_oob_actions_unavailable">输入OOB行为不可用</string>
 
-    <string name="sending_prov_invite">Sending provisioning invite…</string>
+    <string name="sending_prov_invite">发送配置邀请…</string>
 
     <string name="provision_action">Provision</string>
     <string name="identify_action">Identify</string>
 
     <string name="ok">OK</string>
 
-    <string name="title_node_details">Node Details</string>
-    <string name="node_name">Name</string>
-    <string name="node_prov_timestamp">Provisioned Time</string>
-    <string name="node_identifier">Node Identifier</string>
-    <string name="node_unicast_address">Unicast Address</string>
-    <string name="node_company_identifier">Company Identifier</string>
-    <string name="node_product_identifier">Product Identifier</string>
-    <string name="node_product_version">Product Version</string>
+    <string name="title_node_details">节点详情</string>
+    <string name="node_name">名称</string>
+    <string name="node_prov_timestamp">配置时间</string>
+    <string name="node_identifier">节点标识</string>
+    <string name="node_unicast_address">节点地址</string>
+    <string name="node_company_identifier">厂商标识</string>
+    <string name="node_product_identifier">产品标识</string>
+    <string name="node_product_version">产品版本</string>
     <string name="node_replay_protection_count">Replay Protection Count</string>
-    <string name="node_features">Node Features</string>
+    <string name="node_features">节点特性</string>
 
     <string name="title_elements">Elements</string>
     <string name="title_node_element_details">Element Details</string>
 
-    <string name="generate_new_key">Generate Key</string>
+    <string name="generate_new_key">生成key</string>
 
-    <string name="title_network_name">Network Name</string>
-    <string name="summary_network_name">Enter a network name</string>
-    <string name="hint_global_network_name">Network Name</string>
+    <string name="title_network_name">网络名称</string>
+    <string name="summary_network_name">输入网络名称</string>
+    <string name="hint_global_network_name">网络名称</string>
 
-    <string name="title_allocated_ranges">Allocated Ranges</string>
-    <string name="not_allocated">Not Allocated</string>
-    <string name="allocated_to_this">Allocated to this Provisioner</string>
-    <string name="allocated_to_another">Allocated to another Provisioner</string>
-    <string name="conflicting_with_another">Conflicting with another Provisioner</string>
+    <string name="title_allocated_ranges">已分配范围</string>
+    <string name="not_allocated">未分配</string>
+    <string name="allocated_to_this">分配给此Provisioner</string>
+    <string name="allocated_to_another">分配给其他Provisioner</string>
+    <string name="conflicting_with_another">与其他Provisioner冲突</string>
 
-    <string name="title_range">Range</string>
-    <string name="range_deleted">Range deleted.</string>
+    <string name="title_range">范围</string>
+    <string name="range_deleted">范围被删除.</string>
     <string name="title_no_ranges">NO RANGES ALLOCATED</string>
-    <string name="title_edit_unicast_ranges">Edit Unicast Ranges</string>
-    <string name="title_edit_group_ranges">Edit Group Ranges</string>
-    <string name="title_edit_scene_ranges">Edit Scene Ranges</string>
-    <string name="unicast_range_summary">Enter lower and upper bounds as 4–character hexadecimal string.\nValid range: 0x0001 – 0x7FFF</string>
-    <string name="group_range_summary">Enter lower and upper bounds as 4–character hexadecimal string.\nValid range: 0xC000 – 0xFEFF</string>
-    <string name="scene_range_summary">Enter lower and upper bounds as 4–character hexadecimal string.\nValid range: 0x0001 – 0xFFFF</string>
+    <string name="title_edit_unicast_ranges">编辑单播地址范围</string>
+    <string name="title_edit_group_ranges">编辑组地址范围</string>
+    <string name="title_edit_scene_ranges">编辑场景地址范围</string>
+    <string name="unicast_range_summary">分别输入两个字符串(4个16进制字母)作为上下边界.\n有效范围: 0x0001 – 0x7FFF</string>
+    <string name="group_range_summary">分别输入两个字符串(4个16进制字母)作为上下边界.\n有效范围: 0xC000 – 0xFEFF</string>
+    <string name="scene_range_summary">分别输入两个字符串(4个16进制字母)作为上下边界.\n有效范围: 0x0001 – 0xFFFF</string>
 
     <string name="title_provisioners">Provisioners</string>
     <string name="title_provisioner">Provisioner</string>
-    <string name="provisioner_deleted">Provisioner deleted.</string>
-    <string name="title_provisioner_address">Provisioner Address</string>
-    <string name="action_add_range">Add range</string>
+    <string name="provisioner_deleted">Provisioner被删除.</string>
+    <string name="title_provisioner_address">Provisioner地址</string>
+    <string name="action_add_range">添加地址范围</string>
     <string name="range_adapter_format"> %s - %s</string>
-    <string name="low_address">Low Address</string>
-    <string name="high_address">High Address</string>
-    <string name="provisioner_name_rationale">This is a friendly name that can be used to identify a provisioner.</string>
-    <string name="title_provisioner_name">Provisioner Name</string>
-    <string name="title_current_provisioner">Current Provisioner</string>
-    <string name="title_other_provisioner">Other Provisioners</string>
-    <string name="title_manage_provisioners">Manage Provisioners</string>
-    <string name="title_add_provisioner">Add Provisioner</string>
-    <string name="title_edit_provisioner">Edit Provisioner</string>
-    <string name="hint_delete_provisioner">Hint: Swipe to delete a provisioner.</string>
-    <string name="provisioner_authentication_title">Authentication</string>
-    <string name="provisioner_input_static_oob">Input the 128-bit Static OOB value provided with the device.</string>
-    <string name="provisioner_input_blinks">Input the number of times the device blinked.</string>
-    <string name="provisioner_input_beeps">Input the number of times the device beeped.</string>
-    <string name="provisioner_input_vibrations">Input the number of times the device vibrated.</string>
-    <string name="provisioner_input_numeric">Input the code displayed on the device.</string>
-    <string name="provisioner_input_numeric_device">Key in the following code %s on the device.</string>
+    <string name="low_address">低地址</string>
+    <string name="high_address">高地址</string>
+    <string name="provisioner_name_rationale">给provisioner一个友好的名称.</string>
+    <string name="title_provisioner_name">Provisioner名称</string>
+    <string name="title_current_provisioner">当前Provisioner</string>
+    <string name="title_other_provisioner">其他Provisioner</string>
+    <string name="title_manage_provisioners">管理Provisioner</string>
+    <string name="title_add_provisioner">添加Provisioner</string>
+    <string name="title_edit_provisioner">编辑Provisioner</string>
+    <string name="hint_delete_provisioner">Hint: 按住滑动删除一项.</string>
+    <string name="provisioner_authentication_title">认证</string>
+    <string name="provisioner_input_static_oob">给设备输入 128 位静态 OOB 值.</string>
+    <string name="provisioner_input_blinks">输入闪烁次数.</string>
+    <string name="provisioner_input_beeps">输入蜂鸣器呼叫次数.</string>
+    <string name="provisioner_input_vibrations">输入设备振动的次数.</string>
+    <string name="provisioner_input_numeric">输入显示在设备上的代码.</string>
+    <string name="provisioner_input_numeric_device">在设备上输入以下代码 %s .</string>
 
-    <string name="dialog_summary_src">Hexadecimal value in range 0x0001 – 0x7FFF.</string>
+    <string name="dialog_summary_src">范围为0x0001 - 0x7FFF的十六进制值.</string>
 
-    <string name="network_settings">Network Settings</string>
-    <string name="title_net_keys">Network Keys</string>
-    <string name="unicast_address">Unicast Address: %s</string>
-    <string name="unicast_address_unassigned">Unicast Address: Unassigned</string>
+    <string name="network_settings">网络设置</string>
+    <string name="title_net_keys">网络Key</string>
+    <string name="unicast_address">单播地址: %s</string>
+    <string name="unicast_address_unassigned">单播地址: 未设定</string>
 
-    <string name="title_node_name">Node name</string>
-    <string name="summary_name">Name</string>
-    <string name="node_name_rationale">This is a friendly name to be used to identify a node.</string>
-    <string name="title_element_name">Element name</string>
-    <string name="element_name_rationale">This is a friendly name to be used to identify an element.</string>
-    <string name="hint_friendly_name">Friendly name</string>
+    <string name="title_node_name">节点名称</string>
+    <string name="summary_name">名称</string>
+    <string name="node_name_rationale">标识节点的友好名称.</string>
+    <string name="title_element_name">元件名称</string>
+    <string name="element_name_rationale">这是用来表示元件的一个易记名称.</string>
+    <string name="hint_friendly_name">易记名称</string>
 
-    <string name="title_primary_net_key">Primary Network Key</string>
-    <string name="title_sub_net_keys">Sub Network Keys</string>
-    <string name="hint_network_key">Network key</string>
-    <string name="generate_network_key">Generate Key</string>
-    <string name="error_empty_network_key">Network key cannot be empty!</string>
+    <string name="title_primary_net_key">主网络Key</string>
+    <string name="title_sub_net_keys">子网络Key列表</string>
+    <string name="hint_network_key">网络key</string>
+    <string name="generate_network_key">生成Key</string>
+    <string name="error_empty_network_key">网络key不能为空!</string>
 
-    <string name="title_key_index">Key Index</string>
-    <string name="error_empty_key_index">Key index cannot be empty!</string>
-    <string name="error_invalid_key_index">Key index must be 0 to 4095!</string>
+    <string name="title_key_index">Key索引</string>
+    <string name="error_empty_key_index">Key索引不能为空!</string>
+    <string name="error_invalid_key_index">Key索引范围为 0 - 4095!</string>
 
-    <string name="error_empty_iv_index">IV Index cannot be empty!</string>
-    <string name="error_invalid_iv_index">IV Index must be 0 to 4294967295!</string>
+    <string name="error_empty_iv_index">IV索引不能为空!</string>
+    <string name="error_invalid_iv_index">IV索引范围为 0 - 4294967295!</string>
 
-    <string name="title_unicast_address">Unicast Address</string>
-    <string name="dialog_summary_unicast_address">Enter a unicast address for the node.</string>
-    <string name="title_unicast_addresses">Unicast Addresses</string>
-    <string name="title_group_addresses">Group Addresses</string>
-    <string name="title_scenes">Scenes</string>
-    <string name="hint_unicast_address">Unicast address</string>
-    <string name="error_empty_unicast_address">Address cannot be empty!</string>
-    <string name="network">Network</string>
-    <string name="action_groups">Groups</string>
-    <string name="action_proxy">Proxy Filter</string>
-    <string name="action_settings">Settings</string>
+    <string name="title_unicast_address">单播地址</string>
+    <string name="dialog_summary_unicast_address">输入节点单播地址.</string>
+    <string name="title_unicast_addresses">单播地址列表</string>
+    <string name="title_group_addresses">组地址列表</string>
+    <string name="title_scenes">场景列表</string>
+    <string name="hint_unicast_address">单播地址</string>
+    <string name="error_empty_unicast_address">地址不能为空!</string>
+    <string name="network">网络</string>
+    <string name="action_groups">组列表</string>
+    <string name="action_proxy">代理过滤器</string>
+    <string name="action_settings">设置</string>
     <string name="no_nodes_provisioned_title">NO NODES PROVISIONED</string>
-    <string name="no_nodes_provisioned_rationale">Add a mesh node by scanning and provisioning the device.</string>
+    <string name="no_nodes_provisioned_rationale">通过扫描和配置设备添加网络节点.</string>
 
     <string name="no_groups_configured_title">NO GROUPS CONFIGURED</string>
-    <string name="no_groups_configured_rationale">Create a group to control your devices. All groups listed here can be subscribed to from a model.</string>
-    <string name="group_address_summary">Address: %s</string>
-    <string name="title_edit_group_info">Edit Group</string>
-    <string name="select_a_group_rationale">Select an existing group</string>
-    <string name="no_available_groups">No available groups.</string>
-    <string name="create_a_group_rationale">Create a new group to subscribe</string>
-    <string name="title_create_group">Create Group</string>
-    <string name="title_create_group_summary">Select an address type to create a Group</string>
-    <string name="title_subscribe_group">Subscribe</string>
-    <string name="error_empty_group_name">Group name cannot be empty!</string>
-    <string name="error_empty_group_address">Group address cannot be empty!</string>
-    <string name="error_group_address_in_used">Group address already in use!</string>
-    <string name="error_group_unsubscribe_to_delete">Please unsubscribe the models from this group inorder to delete the group!</string>
-    <string name="group_deleted">Group %s deleted!</string>
+    <string name="no_groups_configured_rationale">创建一个小组来控制你的设备. 这里列出的所有组都可以从一个模型订阅.</string>
+    <string name="group_address_summary">地址: %s</string>
+    <string name="title_edit_group_info">编辑组</string>
+    <string name="select_a_group_rationale">选择一个存在的组</string>
+    <string name="no_available_groups">没有可用组.</string>
+    <string name="create_a_group_rationale">创建一个组以被订阅</string>
+    <string name="title_create_group">创建组</string>
+    <string name="title_create_group_summary">选择一个地址类型去创建组</string>
+    <string name="title_subscribe_group">订阅</string>
+    <string name="error_empty_group_name">组名不能为空!</string>
+    <string name="error_empty_group_address">组地址不能为空!</string>
+    <string name="error_group_address_in_used">组地址已被使用!</string>
+    <string name="error_group_unsubscribe_to_delete">请解除模型对此组的订阅,以删除该组!</string>
+    <string name="group_deleted">组 %s 已被删除!</string>
     <string name="no_models_configured_title">NO MODELS CONFIGURED</string>
-    <string name="no_models_configured_rationale">No models are subscribed to this group.</string>
+    <string name="no_models_configured_rationale">没有模型订阅此组.</string>
     <string name="no_app_key_configured_title">NO APP KEYS BOUND</string>
-    <string name="no_app_key_configured_rationale">No app keys are bound for models in this group. \nClick edit on the options menu to bind an app key to the models.</string>
+    <string name="no_app_key_configured_rationale">没有应用秘钥绑定在此组的模型中. \n点击菜单中编辑按钮去给模型绑定应用秘钥.</string>
 
-    <string name="title_manage_net_keys">Manage Net Keys</string>
+    <string name="title_manage_net_keys">管理网络秘钥</string>
     <string name="key">Key</string>
-    <string name="title_net_key">Net Key</string>
-    <string name="title_add_net_key">Add Net Key</string>
-    <string name="title_edit_net_key">Edit Net Key</string>
-    <string name="title_manage_app_keys">Manage App Keys</string>
-    <string name="title_app_key">App Key</string>
-    <string name="title_app_keys">App Keys</string>
-    <string name="title_key_details">Key Details</string>
-    <string name="title_add_app_key">Add App Key</string>
-    <string name="title_edit_app_key">Edit App Key</string>
-    <string name="title_bound_net_key">Bound Net Key</string>
-    <string name="summary_edit_key">The key must be a 32-character hexadecimal string.</string>
-    <string name="title_edit_key">Edit Key</string>
-    <string name="title_edit_key_name">Edit Key Name</string>
-    <string name="key_name_rationale">This is a friendly name that can be used to identify a key.</string>
-    <string name="title_select_app_key">Select App Key</string>
-    <string name="title_select_net_key">Select Net Key</string>
-    <string name="hint_app_key">App key</string>
+    <string name="title_net_key">网络秘钥</string>
+    <string name="title_add_net_key">添加网络秘钥</string>
+    <string name="title_edit_net_key">编辑网络秘钥</string>
+    <string name="title_manage_app_keys">管理应用秘钥</string>
+    <string name="title_app_key">应用秘钥</string>
+    <string name="title_app_keys">应用秘钥列表</string>
+    <string name="title_key_details">秘钥详情</string>
+    <string name="title_add_app_key">添加应用秘钥</string>
+    <string name="title_edit_app_key">编辑应用秘钥</string>
+    <string name="title_bound_net_key">绑定的网络秘钥</string>
+    <string name="summary_edit_key">秘钥必须为32个16进制字符组成的串.</string>
+    <string name="title_edit_key">编辑秘钥</string>
+    <string name="title_edit_key_name">编辑秘钥名称</string>
+    <string name="key_name_rationale">这是一个比较容易记的名字.</string>
+    <string name="title_select_app_key">选择应用秘钥</string>
+    <string name="title_select_net_key">选择网络秘钥</string>
+    <string name="hint_app_key">应用秘钥</string>
     <string name="no_app_keys_title">NO APP KEYS AVAILABLE</string>
-    <string name="no_app_keys">No app keys available.</string>
-    <string name="no_app_keys_rationale">App keys are required to configure a mesh node.
-        Please add an app key in the network settings.</string>
-    <string name="no_added_app_keys_rationale">Binding an app key to a model requires it to be added to a provisioned mesh node.
-        Navigate back to the node configuration view add a new app key</string>
-    <string name="net_key_deleted">Net key deleted.</string>
-    <string name="app_key_deleted">App key deleted.</string>
-    <string name="undo">Undo</string>
-    <string name="title_error_provisioning_failed">Provisioning Failed</string>
-    <string name="provisioning_cancelled">Provisioning canceled!</string>
+    <string name="no_app_keys">无可用应用秘钥.</string>
+    <string name="no_app_keys_rationale">需要应用秘钥配置此mesh节点.
+        请在网络设置中添加一个应用秘钥.</string>
+    <string name="no_added_app_keys_rationale">绑定应用秘钥到模型首先需要将此秘钥添加到该配置过的mesh节点.
+        返回节点配置页面增加一个应用秘钥</string>
+    <string name="net_key_deleted">网络秘钥被删除.</string>
+    <string name="app_key_deleted">应用秘钥被删除.</string>
+    <string name="undo">撤销</string>
+    <string name="title_error_provisioning_failed">配置失败!</string>
+    <string name="provisioning_cancelled">配置过程取消了!</string>
 
     <string name="nrf_mesh_node">nRF Mesh Node</string>
-    <string name="unicast">Address:</string>
-    <string name="company">Company:</string>
+    <string name="unicast">单播地址:</string>
+    <string name="company">厂商:</string>
     <string name="nordic_semiconductor_asa">Nordic Semiconductor ASA</string>
-    <string name="elements">Elements:</string>
-    <string name="models">Models:</string>
+    <string name="elements">元件列表:</string>
+    <string name="models">模型列表:</string>
 
-    <string name="title_appkey_status">AppKey Status</string>
-    <string name="title_netkey_status">NetKey Status</string>
-    <string name="error_empty_name">Name cannot be empty!</string>
-    <string name="element_address">Element: %s</string>
-    <string name="model_count">%d Models</string>
-    <string name="format_sig_model_id">SIG Model ID: %s</string>
-    <string name="format_vendor_model_id">Vendor Model ID: %s</string>
+    <string name="title_appkey_status">应用秘钥状态</string>
+    <string name="title_netkey_status">网络秘钥状态</string>
+    <string name="error_empty_name">名称不能为空!</string>
+    <string name="element_address">元件: %s</string>
+    <string name="model_count">%d 个模型</string>
+    <string name="format_sig_model_id">SIG 模型ID: %s</string>
+    <string name="format_vendor_model_id">厂商ID: %s</string>
 
-    <string name="title_publish_address">Publish Address</string>
-    <string name="title_subscription_address">Subscription Address</string>
+    <string name="title_publish_address">发布地址</string>
+    <string name="title_subscription_address">订阅地址</string>
     <string name="none">None</string>
-    <string name="no_app_keys_bound">No app keys are bound to this model.</string>
-    <string name="title_publish_address_configuration">Publish</string>
-    <string name="title_subscription_addresses_configuration">Subscriptions</string>
-    <string name="action_bind_app_key">Bind Key</string>
-    <string name="action_unbind_app_key">Unbind Key</string>
-    <string name="action_set_publish_address">Set Publication</string>
-    <string name="action_clear_publication">Clear Publication</string>
-    <string name="action_subscribe_address">Subscribe</string>
-    <string name="title_app_key_index">Key Index</string>
-    <string name="title_bound_app_keys">Bound App Keys</string>
+    <string name="no_app_keys_bound">无应用秘钥绑定到该模型.</string>
+    <string name="title_publish_address_configuration">发布</string>
+    <string name="title_subscription_addresses_configuration">订阅列表</string>
+    <string name="action_bind_app_key">绑定秘钥</string>
+    <string name="action_unbind_app_key">解绑秘钥</string>
+    <string name="action_set_publish_address">设置发布地址</string>
+    <string name="action_clear_publication">清除发布地址</string>
+    <string name="action_subscribe_address">订阅</string>
+    <string name="title_app_key_index">秘钥索引</string>
+    <string name="title_bound_app_keys">已绑定的应用秘钥列表</string>
 
-    <string name="no_elements_guide_info">No elements were found! \n\nTry configuring the node again to see what elements are available on this node.
-        You may do this by going back to the main screen and connecting to the node.</string>
-    <string name="no_elements_guide_composition_data">No elements were found! \nGet composition data to see what elements are on this node.</string>
-    <string name="action_connect">CONNECT</string>
-    <string name="action_disconnect">Disconnect</string>
+    <string name="no_elements_guide_info">未找到元件! \n\n再次尝试配置节点, 以查看该节点上有哪些元素可用.
+        您可以回到主屏幕进行节点连接.</string>
+    <string name="no_elements_guide_composition_data">未找到元件! \n获取组合数据以查看该节点上有哪些元素.</string>
+    <string name="action_connect">连接</string>
+    <string name="action_disconnect">断开</string>
 
-    <string name="hint_publish_address">Publish Address</string>
-    <string name="error_empty_publish_address">Publish Address cannot be empty!</string>
-    <string name="title_publication_status">Publication Status</string>
+    <string name="hint_publish_address">发布地址</string>
+    <string name="error_empty_publish_address">发布地址不能为空!</string>
+    <string name="title_publication_status">发布状态</string>
     <string name="hex_format">0x%s</string>
     <string name="hex_prefix">0x</string>
-    <string name="invalid_hex_value">Invalid hex value</string>
-    <string name="invalid_address_value">Invalid address</string>
-    <string name="invalid_unicast_address">Unicast address must range from 0x0001 to 0x7FFF</string>
-    <string name="invalid_group_address">Group address must range from 0xC000 to 0xFEFF</string>
-    <string name="action_reset_network">Reset</string>
-    <string name="title_reset_network">Reset Mesh Network</string>
-    <string name="message_reset_network">This will clear all the data stored related to this network and will not be recoverable. Would you like to continue?</string>
-    <string name="not_subscribed_to_groups">Not subscribed to any group addresses.</string>
-    <string name="title_group_address">Group Address</string>
-    <string name="title_configuration_compete">Configuration Complete</string>
-    <string name="configuration_complete_summary">Mesh node has been successfully configured.</string>
+    <string name="invalid_hex_value">无效的16进制值</string>
+    <string name="invalid_address_value">无效地址</string>
+    <string name="invalid_unicast_address">单播地址范围必须为 0x0001 - 0x7FFF</string>
+    <string name="invalid_group_address">组播地址范围必须为 0xC000 - 0xFEFF</string>
+    <string name="action_reset_network">重置</string>
+    <string name="title_reset_network">重置MESH网络</string>
+    <string name="message_reset_network">这将清除该网络保存的所有数据, 并且不可恢复. 您确认要继续吗?</string>
+    <string name="not_subscribed_to_groups">未订阅任何组地址.</string>
+    <string name="title_group_address">组地址</string>
+    <string name="title_configuration_compete">配置完成</string>
+    <string name="configuration_complete_summary">Mesh节点配置完成.</string>
     <string name="action_composition_data">GET COMPOSITION DATA</string>
 
-    <string name="action_add">ADD</string>
-    <string name="action_clear">CLEAR</string>
-    <string name="title_about">About</string>
-    <string name="summary_version">App Version</string>
-    <string name="title_node_configuration">Node Configuration</string>
-    <string name="title_added_net_keys">Added Net Keys</string>
-    <string name="title_added_app_keys">Added App Keys</string>
-    <string name="title_added_keys">Added Keys</string>
-    <string name="title_keys">Keys</string>
-    <string name="title_key">Key</string>
+    <string name="action_add">添加</string>
+    <string name="action_clear">清除</string>
+    <string name="title_about">关于</string>
+    <string name="summary_version">App版本</string>
+    <string name="title_node_configuration">节点配置</string>
+    <string name="title_added_net_keys">添加网络秘钥</string>
+    <string name="title_added_app_keys">添加应用秘钥</string>
+    <string name="title_added_keys">已添加的秘钥列表</string>
+    <string name="title_keys">秘钥列表</string>
+    <string name="title_key">秘钥</string>
 
     <string name="title_network_transmit_info">Network Transmit</string>
     <string name="title_network_transmit">Network Transmit Settings</string>
@@ -319,15 +319,15 @@
     <string name="time_s">%d s</string>
     <string name="time_m">%d min</string>
 
-    <string name="title_relay_retransmit_info">Relay</string>
-    <string name="title_relay_retransmit">Relay Settings</string>
-    <string name="title_relay_state">Relay</string>
+    <string name="title_relay_retransmit_info">中继器</string>
+    <string name="title_relay_retransmit">中继器设置</string>
+    <string name="title_relay_state">中继器</string>
     <string name="title_relay_retransmit_count">Retransmit Count</string>
     <string name="title_relay_retransmit_interval">Retransmit Interval</string>
     <string name="title_relay_retransmit_interval_steps">Retransmit Interval</string>
     <string name="action_relay_retransmit_set">SET RELAY</string>
 
-    <string name="title_proxy_state_settings">Proxy State</string>
+    <string name="title_proxy_state_settings">代理状态</string>
     <string name="action_proxy_state_set_on">ON</string>
     <string name="action_proxy_state_set_off">OFF</string>
     <string name="action_proxy_state_get">READ STATE</string>
@@ -338,50 +338,49 @@
     <string name="proxy_set_off_rationale_summary">Turning off the proxy feature will set this node to a non-connectable state and disable the proxy server.
         However, you will still be able to continue sending messages via the other proxy nodes in the network. Do you wish to continue?</string>
 
-    <string name="title_proxy_filter">Proxy Filter Type</string>
-    <string name="title_filter_addresses">Filter Addresses</string>
-    <string name="inclusion_list">Inclusion list</string>
-    <string name="exclusion_list">Exclusion list</string>
+    <string name="title_proxy_filter">代理过滤类型</string>
+    <string name="title_filter_addresses">过滤地址列表</string>
+    <string name="inclusion_list">包含列表</string>
+    <string name="exclusion_list">不包含列表</string>
     <string name="proxy_filter_summary">Proxy filter can be used to monitor mesh messages sent across a mesh network.
         \n\nInclusion list filter blocks all destination addresses except those that have been added to the inclusion list.
     \n\nThe exclusion list filter accepts all destination addresses except those that have been added to the exclusion list.</string>
 
     <string name="action_disable">Disable</string>
     <string name="disabled">Disabled</string>
-    <string name="hint_remove">Hint: Swipe address to remove.</string>
-    <string name="hint_filter_address">Unicast/Group Address</string>
-    <string name="no_addresses_added">No addresses are added to this filter!</string>
-    <string name="title_add_address">Add Address</string>
-    <string name="address">Address</string>
+    <string name="hint_remove">Hint: 滑动地址进行删除.</string>
+    <string name="hint_filter_address">单播/组 地址</string>
+    <string name="no_addresses_added">此过滤器未添加地址!</string>
+    <string name="title_add_address">添加地址</string>
+    <string name="address">地址</string>
     <string name="dialog_summary_filter_address">Addresses to be added to the %s. Supported addresses are Unicast, Group or Virtual Addresses.</string>
     <string name="invalid_filter_address">Address must be a Unicast, Group or a Virtual Address!</string>
     <string name="error_empty_filter_address">Add at least one address to confirm!</string>
 
-    <string name="no_app_keys_added">No app keys are added to this node.</string>
-    <string name="error_no_app_keys_bound">No app keys are bound for this model. Please bind an app key first!</string>
+    <string name="no_app_keys_added">无任何应用秘钥被添加到此节点.</string>
+    <string name="error_no_app_keys_bound">无应用秘钥绑定到此模型. 请先绑定一个应用秘钥!</string>
     <string name="action_generic_read_state">READ STATE</string>
     <string name="action_generic_on">ON</string>
     <string name="action_generic_off">OFF</string>
     <string name="transition_time_interval" formatted="false">%s %s</string>
-    <string name="hint_unsubscribe">Hint: Swipe address to unsubscribe.</string>
+    <string name="hint_unsubscribe">Hint: 滑动地址取消订阅.</string>
     <string name="title_generic_on_off_controls">Generic On Off Controls</string>
     <string name="transition_time">Transition time</string>
     <string name="generic_on_off_step_delay">Delay (5ms steps)</string>
     <string name="generic_state_on">LED ON</string>
     <string name="generic_state_off">LED OFF</string>
 
-    <string name="title_reset_node">Reset Node</string>
-    <string name="action_reset_node">RESET</string>
-    <string name="reset_node_rationale">Resetting this node will change its provisioned state back to un-provisioned state.</string>
-    <string name="reset_node_rationale_summary">Resetting this node will change its provisioned state back to un-provisioned
-        state. Any stored data related to the node will be deleted from the app. Do you wish to continue?</string>
+    <string name="title_reset_node">重置节点</string>
+    <string name="action_reset_node">重置</string>
+    <string name="reset_node_rationale">重置该节点将使节点从已配置状态变为未配置.</string>
+    <string name="reset_node_rationale_summary">重置该节点将使节点从已配置状态变为未配置状态. 该节点关联的所有数据将从APP删除. 是否继续?</string>
 
 
-    <string name="node_device_key">Device Key</string>
-    <string name="device_key_clipboard_copied">Device key copied to clipboard</string>
-    <string name="unavailable">Unavailable</string>
-    <string name="hint_unbind">Hint: Swipe key to unbind.</string>
-    <string name="hint_delete">Hint: Swipe key to delete.</string>
+    <string name="node_device_key">设备秘钥</string>
+    <string name="device_key_clipboard_copied">设备秘钥已被拷贝到剪贴板!</string>
+    <string name="unavailable">不可用</string>
+    <string name="hint_unbind">Hint: 滑动秘钥解绑.</string>
+    <string name="hint_delete">Hint: 滑动秘钥删除.</string>
     <string name="title_transaction_failed">Transaction Failed</string>
     <string name="segments_not_received_timed_out">All message segments were not received, operation timed out!</string>
     <string name="operation_timed_out">Operation timed out</string>
@@ -395,7 +394,7 @@
     <string name="input_oob_size_title">Input OOB Size</string>
     <string name="unknown">Unknown</string>
 
-    <string name="title_vendor_model_controls">Vendor Model Controls</string>
+    <string name="title_vendor_model_controls">厂家模型控制</string>
     <string name="opcode">Opcode without company id</string>
     <string name="parameters">Parameters</string>
     <string name="received_message">Received message:</string>
@@ -455,7 +454,7 @@
 
     <string name="hint_publish_ttl">TTL ranges from 0 to 127</string>
     <string name="hint_publication_steps">Publication steps</string>
-    <string name="model_id">Model ID: %s</string>
+    <string name="model_id">模型ID: %s</string>
     <string name="title_disconnected_error">Error</string>
     <string name="disconnected_network_rationale">Connect to proxy node to configure.</string>
     <string name="remaining_time">Rem. Time: %s</string>

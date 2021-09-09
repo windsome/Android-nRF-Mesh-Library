@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:background="@color/colorNordicLogoTop"
-        app:srcCompat="@drawable/nordic_logo"/>
+        app:srcCompat="@drawable/logo_mesh"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

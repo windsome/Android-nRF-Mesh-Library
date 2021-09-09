@@ -336,7 +336,7 @@ public class HeartbeatPublicationActivity extends AppCompatActivity implements
 
     private void updateCountLog(final int countLog) {
         try {
-            binding.countSlider.setValue(countLog);
+            binding.countSlider.setValue((countLog > 0) ?countLog : 0);
         } catch (Exception ex) {
             Log.d("TAG", "Weird crash");
         }

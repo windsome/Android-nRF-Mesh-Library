@@ -22,18 +22,11 @@
 
 package no.nordicsemi.android.nrfmesh;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,14 +37,14 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import dagger.hilt.android.AndroidEntryPoint;
-import no.nordicsemi.android.mesh.ApplicationKey;
-import no.nordicsemi.android.mesh.transport.GenericOnOffGet;
 import no.nordicsemi.android.mesh.transport.ProvisionedMeshNode;
 import no.nordicsemi.android.nrfmesh.ble.ScannerActivity;
 import no.nordicsemi.android.nrfmesh.databinding.FragmentNetworkBinding;
+import no.nordicsemi.android.nrfmesh.databinding.FragmentSampleDeviceBinding;
 import no.nordicsemi.android.nrfmesh.dialog.DialogFragmentDeleteNode;
 import no.nordicsemi.android.nrfmesh.dialog.DialogFragmentError;
 import no.nordicsemi.android.nrfmesh.node.NodeConfigurationActivity;
@@ -65,37 +58,19 @@ import no.nordicsemi.android.nrfmesh.widgets.RemovableViewHolder;
 import static android.app.Activity.RESULT_OK;
 
 @AndroidEntryPoint
-public class NetworkFragment extends Fragment implements
+public class SampleDeviceFragment extends Fragment implements
         NodeAdapter.OnItemClickListener,
         ItemTouchHelperAdapter,
         DialogFragmentDeleteNode.DialogFragmentDeleteNodeListener {
-    private FragmentNetworkBinding binding;
+    private FragmentSampleDeviceBinding binding;
     private SharedViewModel mViewModel;
 
     private NodeAdapter mNodeAdapter;
 
-    private int mSendIndex = 0;
-    private Handler mHandler = new Handler();
-    private Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            //todo
-            final List<ApplicationKey> appKeys = mViewModel.getNetworkLiveData().getMeshNetwork().getAppKeys();
-            int size = appKeys.size();
-            if (size > 0) {
-                int keyIndex= (mSendIndex++) % size;
-                Log.i("NetworkFragment", "createMeshPdu "+ keyIndex);
-                final GenericOnOffGet genericOnOffGet = new GenericOnOffGet(appKeys.get(keyIndex));
-                mViewModel.getMeshManagerApi().createMeshPdu(0xffff, genericOnOffGet);
-            }
-            mHandler.postDelayed(this, 10000);
-        }
-    };
-
     @Nullable
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup viewGroup, @Nullable final Bundle savedInstanceState) {
-        binding = FragmentNetworkBinding.inflate(getLayoutInflater());
+        binding = FragmentSampleDeviceBinding.inflate(getLayoutInflater());
         mViewModel = new ViewModelProvider(requireActivity()).get(SharedViewModel.class);
 
         final ExtendedFloatingActionButton fab = binding.fabAddNode;
@@ -148,9 +123,6 @@ public class NetworkFragment extends Fragment implements
             intent.putExtra(Utils.EXTRA_DATA_PROVISIONING_SERVICE, true);
             startActivityForResult(intent, Utils.PROVISIONING_SUCCESS);
         });
-
-        //调用
-        mHandler.postDelayed(runnable, 1000);
 
         return binding.getRoot();
     }

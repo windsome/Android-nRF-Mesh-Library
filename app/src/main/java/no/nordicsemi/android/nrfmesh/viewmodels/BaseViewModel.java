@@ -6,8 +6,10 @@ import android.content.Intent;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 
 import androidx.annotation.NonNull;
@@ -325,4 +327,9 @@ public abstract class BaseViewModel extends ViewModel {
     public void setActivityVisible(final boolean visible) {
         isActivityVisible = visible;
     }
+
+    public final LiveData<Map<String, NrfMeshRepository.NodeStatus>> getNodeStatusMap() {
+        return mNrfMeshRepository.getNodeStatusMap();
+    }
+
 }

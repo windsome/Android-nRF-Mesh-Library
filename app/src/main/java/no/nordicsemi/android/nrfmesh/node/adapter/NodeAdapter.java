@@ -29,6 +29,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,21 +44,59 @@ import no.nordicsemi.android.mesh.utils.MeshAddress;
 import no.nordicsemi.android.mesh.utils.MeshParserUtils;
 import no.nordicsemi.android.nrfmesh.R;
 import no.nordicsemi.android.nrfmesh.databinding.NetworkItemBinding;
+import no.nordicsemi.android.nrfmesh.viewmodels.NrfMeshRepository;
 import no.nordicsemi.android.nrfmesh.widgets.RemovableViewHolder;
 
 public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.ViewHolder> {
     private final List<ProvisionedMeshNode> mNodes = new ArrayList<>();
     private OnItemClickListener mOnItemClickListener;
+    private LiveData<Map<String, NrfMeshRepository.NodeStatus>> mNodeStatusMap;
 
     public NodeAdapter(@NonNull final LifecycleOwner owner,
-                       @NonNull final LiveData<List<ProvisionedMeshNode>> provisionedNodesLiveData) {
+                       @NonNull final LiveData<List<ProvisionedMeshNode>> provisionedNodesLiveData,
+                       @NonNull final LiveData<Map<String, NrfMeshRepository.NodeStatus>> nodeStatusMapLiveData) {
+        mNodeStatusMap = nodeStatusMapLiveData;
         provisionedNodesLiveData.observe(owner, nodes -> {
+            Map<String, NrfMeshRepository.NodeStatus> statusMap = nodeStatusMapLiveData.getValue();
             if (nodes != null) {
                 mNodes.clear();
-                mNodes.addAll(nodes);
+                // 分类排列, 1:断开的 on=false, 2: 未断开的 on=true, 3: 离线的 offline
+                mNodes.addAll(sortNodes(nodes, statusMap));
                 notifyDataSetChanged();
             }
         });
+        nodeStatusMapLiveData.observe(owner, statusMap -> {
+            List<ProvisionedMeshNode> nodes = provisionedNodesLiveData.getValue();
+            if (nodes != null) {
+                mNodes.clear();
+                mNodes.addAll(sortNodes(nodes, statusMap));
+                notifyDataSetChanged();
+            }
+        });
+    }
+
+    private List<ProvisionedMeshNode> sortNodes(List<ProvisionedMeshNode> nodes, Map<String, NrfMeshRepository.NodeStatus> statusMap) {
+        if (statusMap == null) return nodes;
+        if (nodes == null) return null;
+        List<ProvisionedMeshNode> nNodes1 = new ArrayList<>();
+        List<ProvisionedMeshNode> nNodes2 = new ArrayList<>();
+        List<ProvisionedMeshNode> nNodes3 = new ArrayList<>();
+        for (ProvisionedMeshNode node : nodes) {
+            String uuid = node.getUuid();
+            NrfMeshRepository.NodeStatus status = statusMap.get(uuid);
+            if (status != null) {
+                if (!status.on) {
+                    nNodes1.add(node);
+                } else {
+                    nNodes2.add(node);
+                }
+            } else {
+                nNodes3.add(node);
+            }
+        }
+        nNodes1.addAll(nNodes2);
+        nNodes1.addAll(nNodes3);
+        return nNodes1;
     }
 
     public void setOnItemClickListener(@NonNull final OnItemClickListener listener) {
@@ -74,7 +113,16 @@ public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         final ProvisionedMeshNode node = mNodes.get(position);
         if (node != null) {
-            holder.name.setText(node.getNodeName());
+            String strStatus = "未知状态";
+            Map<String, NrfMeshRepository.NodeStatus> statusMap = mNodeStatusMap.getValue();
+            if (statusMap != null) {
+                NrfMeshRepository.NodeStatus status = statusMap.get(node.getUuid());
+                if (status != null) {
+                    if (status.on) strStatus = "在线";
+                    else strStatus = "断开";
+                } else strStatus = "离线";
+            }
+            holder.name.setText("["+strStatus+"]"+node.getNodeName());
             holder.unicastAddress.setText(MeshParserUtils.bytesToHex(MeshAddress.addressIntToBytes(node.getUnicastAddress()), false));
             final Map<Integer, Element> elements = node.getElements();
             if (!elements.isEmpty()) {

@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements
     private SharedViewModel mViewModel;
 
     private NetworkFragment mNetworkFragment;
+    private SampleDeviceFragment mSampleDeviceFragment;
     private GroupsFragment mGroupsFragment;
     private ProxyFilterFragment mProxyFilterFragment;
     private Fragment mSettingsFragment;
@@ -65,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements
         getSupportActionBar().setTitle(R.string.app_name);
 
         mNetworkFragment = (NetworkFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_network);
+        mSampleDeviceFragment = (SampleDeviceFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_sample_device);
         mGroupsFragment = (GroupsFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_groups);
         mProxyFilterFragment = (ProxyFilterFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_proxy);
         mSettingsFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_settings);
@@ -119,13 +121,15 @@ public class MainActivity extends AppCompatActivity implements
         final int id = item.getItemId();
         final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         if (id == R.id.action_network) {
-            ft.show(mNetworkFragment).hide(mGroupsFragment).hide(mProxyFilterFragment).hide(mSettingsFragment);
+            ft.show(mNetworkFragment).hide(mSampleDeviceFragment).hide(mGroupsFragment).hide(mProxyFilterFragment).hide(mSettingsFragment);
+//        } else if (id == R.id.action_sample_device) {
+//            ft.hide(mNetworkFragment).show(mSampleDeviceFragment).hide(mGroupsFragment).hide(mProxyFilterFragment).hide(mSettingsFragment);
         } else if (id == R.id.action_groups) {
-            ft.hide(mNetworkFragment).show(mGroupsFragment).hide(mProxyFilterFragment).hide(mSettingsFragment);
+            ft.hide(mNetworkFragment).hide(mSampleDeviceFragment).show(mGroupsFragment).hide(mProxyFilterFragment).hide(mSettingsFragment);
         } else if (id == R.id.action_proxy) {
-            ft.hide(mNetworkFragment).hide(mGroupsFragment).show(mProxyFilterFragment).hide(mSettingsFragment);
+            ft.hide(mNetworkFragment).hide(mSampleDeviceFragment).hide(mGroupsFragment).show(mProxyFilterFragment).hide(mSettingsFragment);
         } else if (id == R.id.action_settings) {
-            ft.hide(mNetworkFragment).hide(mGroupsFragment).hide(mProxyFilterFragment).show(mSettingsFragment);
+            ft.hide(mNetworkFragment).hide(mSampleDeviceFragment).hide(mGroupsFragment).hide(mProxyFilterFragment).show(mSettingsFragment);
         }
         ft.commit();
         invalidateOptionsMenu();

@@ -11,7 +11,9 @@ import android.util.Log;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -61,6 +63,7 @@ import no.nordicsemi.android.mesh.transport.ProxyConfigFilterStatus;
 import no.nordicsemi.android.mesh.transport.SceneRegisterStatus;
 import no.nordicsemi.android.mesh.transport.SceneStatus;
 import no.nordicsemi.android.mesh.transport.VendorModelMessageStatus;
+import no.nordicsemi.android.mesh.utils.BytePrint;
 import no.nordicsemi.android.mesh.utils.MeshAddress;
 import no.nordicsemi.android.nrfmesh.adapter.ExtendedBluetoothDevice;
 import no.nordicsemi.android.nrfmesh.ble.BleMeshManager;
@@ -137,6 +140,9 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
     private final MutableLiveData<Provisioner> mSelectedProvisioner = new MutableLiveData<>();
 
     private final MutableLiveData<Group> mSelectedGroupLiveData = new MutableLiveData<>();
+
+    // node status.
+    private final MutableLiveData<Map<String,NodeStatus>> mNodeStatusMapLiveData = new MutableLiveData<>();
 
     // Composition data status
     final SingleLiveEvent<ConfigCompositionDataStatus> mCompositionDataStatus = new SingleLiveEvent<>();
@@ -495,6 +501,8 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
 
     @Override
     public void onDataReceived(final BluetoothDevice bluetoothDevice, final int mtu, final byte[] pdu) {
+        String mac = bluetoothDevice.getAddress();
+        Log.i(TAG, "onDataReceived: "+mac+"("+pdu.length+") "+ BytePrint.bytes2hex(pdu));
         mMeshManagerApi.handleNotifications(mtu, pdu);
     }
 
@@ -927,6 +935,7 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
                         mSelectedModel.postValue(model);
                     }
                 }
+                setNodeStatus(node, (GenericOnOffStatus) meshMessage);
             } else if (meshMessage.getOpCode() == GENERIC_LEVEL_STATUS) {
                 if (updateNode(node)) {
                     final GenericLevelStatus status = (GenericLevelStatus) meshMessage;
@@ -1118,5 +1127,28 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
         if (group != null) {
             mSelectedGroupLiveData.postValue(group);
         }
+    }
+
+    void setNodeStatus(ProvisionedMeshNode node, GenericOnOffStatus meshMessage) {
+        Map<String, NodeStatus> nodeMap = mNodeStatusMapLiveData.getValue();
+        if (nodeMap == null) {
+            nodeMap = new HashMap();
+        }
+        NodeStatus ns = new NodeStatus();
+        ns.srcAddress = meshMessage.getSrcAddress();
+        ns.on = meshMessage.getPresentState();
+        ns.timestamp = System.currentTimeMillis();
+        nodeMap.put(node.getUuid(), ns);
+        mNodeStatusMapLiveData.postValue(nodeMap);
+    }
+    LiveData<Map<String, NodeStatus>> getNodeStatusMap() {
+        return mNodeStatusMapLiveData;
+    }
+
+
+    public class NodeStatus {
+        public boolean on;
+        public int srcAddress;
+        public long timestamp;
     }
 }

@@ -60,6 +60,7 @@ import no.nordicsemi.android.mesh.transport.MeshMessage;
 import no.nordicsemi.android.mesh.transport.NetworkLayerCallbacks;
 import no.nordicsemi.android.mesh.transport.ProvisionedMeshNode;
 import no.nordicsemi.android.mesh.transport.UpperTransportLayerCallbacks;
+import no.nordicsemi.android.mesh.utils.BytePrint;
 import no.nordicsemi.android.mesh.utils.ExtendedInvalidCipherTextException;
 import no.nordicsemi.android.mesh.utils.InputOOBAction;
 import no.nordicsemi.android.mesh.utils.MeshAddress;
@@ -271,6 +272,7 @@ public class MeshManagerApi implements MeshMngrApi {
      * @param unsegmentedPdu pdu received by the client.
      */
     private void parseNotifications(final byte[] unsegmentedPdu) {
+        Log.d(TAG, "parseNotifications: ("+unsegmentedPdu.length+") "+ BytePrint.bytes2hex(unsegmentedPdu));
         try {
             switch (unsegmentedPdu[0]) {
                 case PDU_TYPE_NETWORK:

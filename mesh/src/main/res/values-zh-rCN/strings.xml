@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (c) 2018, Nordic Semiconductor
   ~ All rights reserved.
@@ -21,46 +20,30 @@
   ~ USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   -->
 
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:app="http://schemas.android.com/apk/res-auto"
-      xmlns:tools="http://schemas.android.com/tools">
-    <item
-        android:id="@+id/action_network"
-        android:enabled="true"
-        android:icon="@drawable/ic_mesh_black"
-        android:title="@string/network"
-        app:showAsAction="always"
-        tools:ignore="AlwaysShowAction"/>
+<resources>
+    <string name="app_name">BLE-MESH配置库</string>
 
-<!--    <item-->
-<!--        android:id="@+id/action_sample_device"-->
-<!--        android:enabled="true"-->
-<!--        android:icon="@drawable/ic_alien"-->
-<!--        android:title="@string/unknown_device"-->
-<!--        app:showAsAction="always"-->
-<!--        tools:ignore="AlwaysShowAction"/>-->
+    <string name="error_empty_pin">错误, pin不能为空!</string>
 
-    <item
-        android:id="@+id/action_groups"
-        android:enabled="true"
-        android:icon="@drawable/ic_outline_group"
-        android:title="@string/action_groups"
-        app:showAsAction="always"
-        tools:ignore="AlwaysShowAction"/>
+    <string name="error_empty_network_key">网络秘钥不能为空!</string>
 
-    <item
-        android:id="@+id/action_proxy"
-        android:enabled="true"
-        android:icon="@drawable/ic_proxy"
-        android:title="@string/action_proxy"
-        app:showAsAction="always"
-        tools:ignore="AlwaysShowAction"/>
+    <string name="error_empty_key_index">秘钥索引不能为空!</string>
+    <string name="error_invalid_key_index">秘钥索引必须在0到4095之间!</string>
 
-    <item
-        android:id="@+id/action_settings"
-        android:enabled="true"
-        android:icon="@drawable/ic_settings"
-        android:title="@string/action_settings"
-        app:showAsAction="always"
-        tools:ignore="AlwaysShowAction"/>
-</menu>
+    <string name="error_empty_iv_index">IV索引不能为空!</string>
+    <string name="error_invalid_iv_index">IV索引必须在0和4294967295之间!</string>
+
+    <string name="error_empty_unicast_address">单播地址不为空!</string>
+
+    <string name="error_empty_app_key">应用秘钥不为空!</string>
+
+    <string name="error_prohibited">禁止!</string>
+    <string name="error_invalid_pdu">配置协议PDU不能被设备识别!</string>
+    <string name="error_invalid_format">协议PDU的参数不在范围之内或PDU的长度与期望不同!</string>
+    <string name="error_confirmation_failed">计算后的确认值未校验成功!</string>
+    <string name="error_decryption_failed">数据段未成功解密!</string>
+    <string name="error_unexpected_error">一个不可回复的未知错误!</string>
+    <string name="error_cannot_assign_addresses">设备不能为所有元素分配连续的单播地址!</string>
+    <string name="error_rfu">保留使用!</string>
+
+</resources>

@@ -80,15 +80,18 @@ public class NetworkFragment extends Fragment implements
         @Override
         public void run() {
             //todo
-            final List<ApplicationKey> appKeys = mViewModel.getNetworkLiveData().getMeshNetwork().getAppKeys();
-            int size = appKeys.size();
-            if (size > 0) {
-                int keyIndex= (mSendIndex++) % size;
-                Log.i("NetworkFragment", "createMeshPdu "+ keyIndex);
-                final GenericOnOffGet genericOnOffGet = new GenericOnOffGet(appKeys.get(keyIndex));
-                mViewModel.getMeshManagerApi().createMeshPdu(0xffff, genericOnOffGet);
+            final boolean isConnectedToProxy = mViewModel.isConnectedToProxy().getValue();
+            if (isConnectedToProxy) {
+                final List<ApplicationKey> appKeys = mViewModel.getNetworkLiveData().getMeshNetwork().getAppKeys();
+                int size = appKeys.size();
+                if (size > 0) {
+                    int keyIndex= (mSendIndex++) % size;
+                    Log.i("NetworkFragment", "createMeshPdu "+ keyIndex);
+                    final GenericOnOffGet genericOnOffGet = new GenericOnOffGet(appKeys.get(keyIndex));
+                    mViewModel.getMeshManagerApi().createMeshPdu(0xffff, genericOnOffGet);
+                }
             }
-            mHandler.postDelayed(this, 10000);
+            mHandler.postDelayed(this, 2000);
         }
     };
 

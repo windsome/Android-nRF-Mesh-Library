@@ -126,8 +126,8 @@ public class MainActivity extends AppCompatActivity implements
 //            ft.hide(mNetworkFragment).show(mSampleDeviceFragment).hide(mGroupsFragment).hide(mProxyFilterFragment).hide(mSettingsFragment);
         } else if (id == R.id.action_groups) {
             ft.hide(mNetworkFragment).hide(mSampleDeviceFragment).show(mGroupsFragment).hide(mProxyFilterFragment).hide(mSettingsFragment);
-        } else if (id == R.id.action_proxy) {
-            ft.hide(mNetworkFragment).hide(mSampleDeviceFragment).hide(mGroupsFragment).show(mProxyFilterFragment).hide(mSettingsFragment);
+//        } else if (id == R.id.action_proxy) {
+//            ft.hide(mNetworkFragment).hide(mSampleDeviceFragment).hide(mGroupsFragment).show(mProxyFilterFragment).hide(mSettingsFragment);
         } else if (id == R.id.action_settings) {
             ft.hide(mNetworkFragment).hide(mSampleDeviceFragment).hide(mGroupsFragment).hide(mProxyFilterFragment).show(mSettingsFragment);
         }

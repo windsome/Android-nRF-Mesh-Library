@@ -118,8 +118,8 @@ public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.ViewHolder> {
             if (statusMap != null) {
                 NrfMeshRepository.NodeStatus status = statusMap.get(node.getUuid());
                 if (status != null) {
-                    if (status.on) strStatus = "在线";
-                    else strStatus = "断开";
+                    if (status.on) strStatus = "施封";
+                    else strStatus = "解封";
                 } else strStatus = "离线";
             }
             holder.name.setText("["+strStatus+"]"+node.getNodeName());

@@ -21,7 +21,7 @@
   -->
 
 <resources>
-    <string name="app_name">BLE-MESH配置库</string>
+    <string name="app_name">蓝牙铅封</string>
 
     <string name="error_empty_pin">错误, pin不能为空!</string>
 

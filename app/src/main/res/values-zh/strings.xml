@@ -120,7 +120,7 @@
 
     <string name="title_range">范围</string>
     <string name="range_deleted">范围被删除.</string>
-    <string name="title_no_ranges">NO RANGES ALLOCATED</string>
+    <string name="title_no_ranges">范围未分配</string>
     <string name="title_edit_unicast_ranges">编辑单播地址范围</string>
     <string name="title_edit_group_ranges">编辑组地址范围</string>
     <string name="title_edit_scene_ranges">编辑场景地址范围</string>
@@ -186,14 +186,14 @@
     <string name="title_scenes">场景列表</string>
     <string name="hint_unicast_address">单播地址</string>
     <string name="error_empty_unicast_address">地址不能为空!</string>
-    <string name="network">网络</string>
-    <string name="action_groups">组列表</string>
+    <string name="network">铅封列表</string>
+    <string name="action_groups">分组管理</string>
     <string name="action_proxy">代理过滤器</string>
     <string name="action_settings">设置</string>
-    <string name="no_nodes_provisioned_title">无节点已被配置</string>
+    <string name="no_nodes_provisioned_title">无铅封节点</string>
     <string name="no_nodes_provisioned_rationale">通过扫描和配置设备添加网络节点.</string>
 
-    <string name="no_groups_configured_title">NO GROUPS CONFIGURED</string>
+    <string name="no_groups_configured_title">未配置组</string>
     <string name="no_groups_configured_rationale">创建一个小组来控制你的设备. 这里列出的所有组都可以从一个模型订阅.</string>
     <string name="group_address_summary">地址: %s</string>
     <string name="title_edit_group_info">编辑组</string>
@@ -232,7 +232,7 @@
     <string name="title_select_app_key">选择应用秘钥</string>
     <string name="title_select_net_key">选择网络秘钥</string>
     <string name="hint_app_key">应用秘钥</string>
-    <string name="no_app_keys_title">NO APP KEYS AVAILABLE</string>
+    <string name="no_app_keys_title">没有可用应用秘钥</string>
     <string name="no_app_keys">无可用应用秘钥.</string>
     <string name="no_app_keys_rationale">需要应用秘钥配置此mesh节点.
         请在网络设置中添加一个应用秘钥.</string>
@@ -244,7 +244,7 @@
     <string name="title_error_provisioning_failed">配置失败!</string>
     <string name="provisioning_cancelled">配置过程取消了!</string>
 
-    <string name="nrf_mesh_node">nRF Mesh Node</string>
+    <string name="nrf_mesh_node">蓝牙铅封节点</string>
     <string name="unicast">单播地址:</string>
     <string name="company">厂商:</string>
     <string name="nordic_semiconductor_asa">Nordic Semiconductor ASA</string>
@@ -261,7 +261,7 @@
 
     <string name="title_publish_address">发布地址</string>
     <string name="title_subscription_address">订阅地址</string>
-    <string name="none">None</string>
+    <string name="none">空</string>
     <string name="no_app_keys_bound">无应用秘钥绑定到该模型.</string>
     <string name="title_publish_address_configuration">发布</string>
     <string name="title_subscription_addresses_configuration">订阅列表</string>
@@ -386,12 +386,12 @@
     <string name="operation_timed_out">操作超时</string>
     <string name="element_count_title">元件数量</string>
     <string name="supported_algorithms_title">支持的算法</string>
-    <string name="public_key_type_title">Public Key Type</string>
-    <string name="static_oob_type_title">Static OOB Type</string>
-    <string name="output_oob_size_title">Output OOB Size</string>
-    <string name="supported_output_oob_actions_title">Supported Output OOB Actions</string>
-    <string name="supported_input_oob_actions_title">Supported Input OOB Actions</string>
-    <string name="input_oob_size_title">Input OOB Size</string>
+    <string name="public_key_type_title">公钥类型</string>
+    <string name="static_oob_type_title">静态OOB类型</string>
+    <string name="output_oob_size_title">OOB输出大小</string>
+    <string name="supported_output_oob_actions_title">支持的OOB输出行为</string>
+    <string name="supported_input_oob_actions_title">支持的OOB输入行为</string>
+    <string name="input_oob_size_title">OOB输入大小</string>
     <string name="unknown">未知</string>
 
     <string name="title_vendor_model_controls">厂家模型控制</string>

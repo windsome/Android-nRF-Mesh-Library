@@ -80,16 +80,20 @@ public class NetworkFragment extends Fragment implements
         @Override
         public void run() {
             //todo
-            final boolean isConnectedToProxy = mViewModel.isConnectedToProxy().getValue();
-            if (isConnectedToProxy) {
-                final List<ApplicationKey> appKeys = mViewModel.getNetworkLiveData().getMeshNetwork().getAppKeys();
-                int size = appKeys.size();
-                if (size > 0) {
-                    int keyIndex= (mSendIndex++) % size;
-                    Log.i("NetworkFragment", "createMeshPdu "+ keyIndex);
-                    final GenericOnOffGet genericOnOffGet = new GenericOnOffGet(appKeys.get(keyIndex));
-                    mViewModel.getMeshManagerApi().createMeshPdu(0xffff, genericOnOffGet);
+            try {
+                final boolean isConnectedToProxy = mViewModel.isConnectedToProxy().getValue();
+                if (isConnectedToProxy) {
+                    final List<ApplicationKey> appKeys = mViewModel.getNetworkLiveData().getMeshNetwork().getAppKeys();
+                    int size = appKeys.size();
+                    if (size > 0) {
+                        int keyIndex= (mSendIndex++) % size;
+                        Log.i("NetworkFragment", "createMeshPdu "+ keyIndex);
+                        final GenericOnOffGet genericOnOffGet = new GenericOnOffGet(appKeys.get(keyIndex));
+                        mViewModel.getMeshManagerApi().createMeshPdu(0xffff, genericOnOffGet);
+                    }
                 }
+            }catch (Exception e) {
+                Log.e("NetworkFragment", "run: ", e);
             }
             mHandler.postDelayed(this, 2000);
         }
@@ -153,7 +157,7 @@ public class NetworkFragment extends Fragment implements
         });
 
         //调用
-        mHandler.postDelayed(runnable, 1000);
+        mHandler.postDelayed(runnable, 2000);
 
         return binding.getRoot();
     }

@@ -344,7 +344,8 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
         final LogSession logSession = Logger.newSession(context, null, device.getAddress(), device.getName());
         mBleMeshManager.setLogger(logSession);
         initIsConnectedLiveData(connectToNetwork);
-        mConnectionState.postValue("Connecting....");
+//        mConnectionState.postValue("Connecting....");
+        mConnectionState.postValue("连接中....");
         //Added a 1 second delay for connection, mostly to wait for a disconnection to complete before connecting, in case a device was previously connected.
         Log.d("AA", "Connect issued");
         mBleMeshManager.connect(device.getDevice()).retry(3, 200).enqueue();
@@ -357,7 +358,8 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
      */
     private void connectToProxy(final ExtendedBluetoothDevice device) {
         initIsConnectedLiveData(true);
-        mConnectionState.postValue("Connecting....");
+//        mConnectionState.postValue("Connecting....");
+        mConnectionState.postValue("连接中....");
         mBleMeshManager.connect(device.getDevice()).retry(3, 200).enqueue();
     }
 
@@ -513,13 +515,15 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
 
     @Override
     public void onDeviceConnecting(@NonNull final BluetoothDevice device) {
-        mConnectionState.postValue("Connecting....");
+//        mConnectionState.postValue("Connecting....");
+        mConnectionState.postValue("连接中....");
     }
 
     @Override
     public void onDeviceConnected(@NonNull final BluetoothDevice device) {
         mIsConnected.postValue(true);
-        mConnectionState.postValue("Discovering services....");
+//        mConnectionState.postValue("Discovering services....");
+        mConnectionState.postValue("发现服务....");
         mIsConnectedToProxy.postValue(true);
     }
 
@@ -527,9 +531,11 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
     public void onDeviceDisconnecting(@NonNull final BluetoothDevice device) {
         Log.v(TAG, "Disconnecting...");
         if (mIsReconnectingFlag) {
-            mConnectionState.postValue("Reconnecting...");
+//            mConnectionState.postValue("Reconnecting...");
+            mConnectionState.postValue("重连中...");
         } else {
-            mConnectionState.postValue("Disconnecting...");
+//            mConnectionState.postValue("Disconnecting...");
+            mConnectionState.postValue("断开连接中...");
         }
     }
 
@@ -564,7 +570,8 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
 
     @Override
     public void onServicesDiscovered(@NonNull final BluetoothDevice device, final boolean optionalServicesFound) {
-        mConnectionState.postValue("Initializing...");
+//        mConnectionState.postValue("Initializing...");
+        mConnectionState.postValue("初始化...");
     }
 
     @Override
@@ -705,7 +712,8 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
         mIsReconnecting.postValue(true);
         mBleMeshManager.disconnect().enqueue();
         loadNodes();
-        mHandler.post(() -> mConnectionState.postValue("Scanning for provisioned node"));
+//        mHandler.post(() -> mConnectionState.postValue("Scanning for provisioned node"));
+        mHandler.post(() -> mConnectionState.postValue("扫描已配置节点"));
         mHandler.postDelayed(mReconnectRunnable, 1000); //Added a slight delay to disconnect and refresh the cache
     }
 
@@ -1078,7 +1086,8 @@ public class NrfMeshRepository implements MeshProvisioningStatusCallbacks, MeshS
                         final ProvisionedMeshNode node = mProvisionedMeshNode;
                         if (mMeshManagerApi.nodeIdentityMatches(node, serviceData)) {
                             stopScan();
-                            mConnectionState.postValue("Provisioned node found");
+//                            mConnectionState.postValue("Provisioned node found");
+                            mConnectionState.postValue("发现已配置节点");
                             onProvisionedDeviceFound(node, new ExtendedBluetoothDevice(result));
                         }
                     }

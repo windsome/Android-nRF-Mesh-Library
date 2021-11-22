@@ -22,6 +22,7 @@
 
 package no.nordicsemi.android.nrfmesh.node.adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -114,31 +115,41 @@ public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.ViewHolder> {
         final ProvisionedMeshNode node = mNodes.get(position);
         if (node != null) {
             String strStatus = "未知状态";
+            boolean isRed = false;
             Map<String, NrfMeshRepository.NodeStatus> statusMap = mNodeStatusMap.getValue();
             if (statusMap != null) {
                 NrfMeshRepository.NodeStatus status = statusMap.get(node.getUuid());
                 if (status != null) {
                     if (status.on) strStatus = "施封";
-                    else strStatus = "解封";
+                    else {
+                        isRed = true;
+                        strStatus = "解封";
+                    }
                 } else strStatus = "离线";
             }
             holder.name.setText("["+strStatus+"]"+node.getNodeName());
-            holder.unicastAddress.setText(MeshParserUtils.bytesToHex(MeshAddress.addressIntToBytes(node.getUnicastAddress()), false));
-            final Map<Integer, Element> elements = node.getElements();
-            if (!elements.isEmpty()) {
-                holder.nodeInfoContainer.setVisibility(View.VISIBLE);
-                if (node.getCompanyIdentifier() != null) {
-                    holder.companyIdentifier.setText(CompanyIdentifiers.getCompanyName(node.getCompanyIdentifier().shortValue()));
-                } else {
-                    holder.companyIdentifier.setText(R.string.unknown);
-                }
-                holder.elements.setText(String.valueOf(elements.size()));
-                holder.models.setText(String.valueOf(getModels(elements)));
+            if (isRed) {
+                holder.name.setTextColor(Color.RED);
             } else {
-                holder.companyIdentifier.setText(R.string.unknown);
-                holder.elements.setText(String.valueOf(node.getNumberOfElements()));
-                holder.models.setText(R.string.unknown);
+                holder.name.setTextColor(Color.BLACK);
             }
+            holder.unicastAddress.setText(MeshParserUtils.bytesToHex(MeshAddress.addressIntToBytes(node.getUnicastAddress()), false));
+            holder.macAddress.setText(node.getNodeMacAddress());
+//            final Map<Integer, Element> elements = node.getElements();
+//            if (!elements.isEmpty()) {
+//                holder.nodeInfoContainer.setVisibility(View.VISIBLE);
+//                if (node.getCompanyIdentifier() != null) {
+//                    holder.companyIdentifier.setText(CompanyIdentifiers.getCompanyName(node.getCompanyIdentifier().shortValue()));
+//                } else {
+//                    holder.companyIdentifier.setText(R.string.unknown);
+//                }
+//                holder.elements.setText(String.valueOf(elements.size()));
+//                holder.models.setText(String.valueOf(getModels(elements)));
+//            } else {
+//                holder.companyIdentifier.setText(R.string.unknown);
+//                holder.elements.setText(String.valueOf(node.getNumberOfElements()));
+//                holder.models.setText(R.string.unknown);
+//            }
         }
     }
 
@@ -176,9 +187,10 @@ public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.ViewHolder> {
         TextView name;
         View nodeInfoContainer;
         TextView unicastAddress;
-        TextView companyIdentifier;
-        TextView elements;
-        TextView models;
+        TextView macAddress;
+//        TextView companyIdentifier;
+//        TextView elements;
+//        TextView models;
 
         private ViewHolder(final @NonNull NetworkItemBinding binding) {
             super(binding.getRoot());
@@ -186,9 +198,10 @@ public class NodeAdapter extends RecyclerView.Adapter<NodeAdapter.ViewHolder> {
             name = binding.nodeName;
             nodeInfoContainer = binding.configuredNodeInfoContainer;
             unicastAddress = binding.unicast;
-            companyIdentifier = binding.companyIdentifier;
-            elements = binding.elements;
-            models = binding.models;
+            macAddress = binding.macAddress;
+//            companyIdentifier = binding.companyIdentifier;
+//            elements = binding.elements;
+//            models = binding.models;
             container.setOnClickListener(v -> {
                 if (mOnItemClickListener != null) {
                     mOnItemClickListener.onConfigureClicked(mNodes.get(getAdapterPosition()));

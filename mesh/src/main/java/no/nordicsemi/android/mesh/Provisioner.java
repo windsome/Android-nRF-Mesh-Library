@@ -57,6 +57,10 @@ public class Provisioner implements Parcelable {
     @Expose
     private String provisionerName = "nRF Mesh Provisioner";
 
+    @ColumnInfo(name = "mac_address")
+    @Expose
+    private String provisionerMacAddress = "";
+
     @ColumnInfo(name = "allocated_unicast_ranges")
     @TypeConverters(MeshTypeConverters.class)
     @NonNull
@@ -115,6 +119,7 @@ public class Provisioner implements Parcelable {
         meshUuid = in.readString();
         provisionerUuid = in.readString();
         provisionerName = in.readString();
+        provisionerMacAddress = in.readString();
         in.readTypedList(allocatedUnicastRanges, AllocatedUnicastRange.CREATOR);
         in.readTypedList(allocatedGroupRanges, AllocatedGroupRange.CREATOR);
         in.readTypedList(allocatedSceneRanges, AllocatedSceneRange.CREATOR);
@@ -172,6 +177,16 @@ public class Provisioner implements Parcelable {
         if (TextUtils.isEmpty(provisionerName))
             throw new IllegalArgumentException("Name cannot be empty");
         this.provisionerName = provisionerName;
+    }
+
+    public String getProvisionerMacAddress() {
+        return provisionerMacAddress;
+    }
+
+    public void setProvisionerMacAddress(String provisionerMacAddress) {
+//        if (TextUtils.isEmpty(provisionerMacAddress))
+//            throw new IllegalArgumentException("mac address cannot be empty");
+        this.provisionerMacAddress = provisionerMacAddress;
     }
 
     /**
@@ -320,6 +335,7 @@ public class Provisioner implements Parcelable {
         parcel.writeString(meshUuid);
         parcel.writeString(provisionerUuid);
         parcel.writeString(provisionerName);
+        parcel.writeString(provisionerMacAddress);
         parcel.writeTypedList(allocatedUnicastRanges);
         parcel.writeTypedList(allocatedGroupRanges);
         parcel.writeTypedList(allocatedSceneRanges);

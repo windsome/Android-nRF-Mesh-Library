@@ -437,6 +437,7 @@ public class ProvisioningActivity extends AppCompatActivity implements
         if (node != null) {
             try {
                 node.setNodeName(mViewModel.getNetworkLiveData().getNodeName());
+                node.setNodeMacAddress(mViewModel.getNetworkLiveData().getNodeMacAddress());
                 setupProvisionerStateObservers();
                 binding.provisioningProgressBar.setVisibility(View.VISIBLE);
                 mViewModel.getMeshManagerApi().startProvisioning(node);

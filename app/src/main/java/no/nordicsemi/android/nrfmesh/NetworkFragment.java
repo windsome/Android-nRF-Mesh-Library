@@ -157,7 +157,7 @@ public class NetworkFragment extends Fragment implements
         });
 
         //调用
-        mHandler.postDelayed(runnable, 2000);
+//        mHandler.postDelayed(runnable, 2000);
 
         return binding.getRoot();
     }

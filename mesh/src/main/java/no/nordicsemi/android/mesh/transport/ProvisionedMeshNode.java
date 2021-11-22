@@ -93,6 +93,7 @@ public final class ProvisionedMeshNode extends ProvisionedBaseMeshNode {
         uuid = node.getDeviceUuid().toString();
         isConfigured = node.isConfigured();
         nodeName = node.getNodeName();
+        nodeMacAddress = node.getNodeMacAddress();
         mAddedNetKeys.add(new NodeKey(node.getKeyIndex()));
         mFlags = node.getFlags();
         unicastAddress = node.getUnicastAddress();
@@ -119,6 +120,7 @@ public final class ProvisionedMeshNode extends ProvisionedBaseMeshNode {
         uuid = provisioner.getProvisionerUuid();
         isConfigured = true;
         nodeName = provisioner.getProvisionerName();
+        nodeMacAddress = provisioner.getProvisionerMacAddress(); // provisioner的mac地址实际没有设置
         for (NetworkKey key : netKeys) {
             mAddedNetKeys.add(new NodeKey(key.getKeyIndex(), false));
         }
@@ -147,6 +149,7 @@ public final class ProvisionedMeshNode extends ProvisionedBaseMeshNode {
         uuid = in.readString();
         isConfigured = in.readByte() != 1;
         nodeName = in.readString();
+        nodeMacAddress = in.readString();
         in.readList(mAddedNetKeys, NodeKey.class.getClassLoader());
         mFlags = in.createByteArray();
         unicastAddress = in.readInt();
@@ -175,6 +178,7 @@ public final class ProvisionedMeshNode extends ProvisionedBaseMeshNode {
         dest.writeString(uuid);
         dest.writeByte((byte) (isConfigured ? 1 : 0));
         dest.writeString(nodeName);
+        dest.writeString(nodeMacAddress);
         dest.writeList(mAddedNetKeys);
         dest.writeByteArray(mFlags);
         dest.writeInt(unicastAddress);

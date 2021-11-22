@@ -68,6 +68,9 @@ abstract class ProvisionedBaseMeshNode implements Parcelable {
     @ColumnInfo(name = "name")
     @Expose
     protected String nodeName = "铅封";
+    @ColumnInfo(name = "mac_address")
+    @Expose
+    protected String nodeMacAddress = "";
     @ColumnInfo(name = "ttl")
     @Expose
     protected Integer ttl = 5;
@@ -192,6 +195,15 @@ abstract class ProvisionedBaseMeshNode implements Parcelable {
     public final void setNodeName(final String nodeName) {
         if (!TextUtils.isEmpty(nodeName))
             this.nodeName = nodeName;
+    }
+
+    public String getNodeMacAddress() {
+        return nodeMacAddress;
+    }
+
+    @RestrictTo(RestrictTo.Scope.LIBRARY)
+    public void setNodeMacAddress(String nodeMacAddress) {
+        this.nodeMacAddress = nodeMacAddress;
     }
 
     public final int getUnicastAddress() {

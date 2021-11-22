@@ -51,7 +51,7 @@ import no.nordicsemi.android.mesh.utils.MeshParserUtils;
         ProvisionedMeshNode.class,
         Group.class,
         Scene.class},
-        version = 12)
+        version = 13)
 abstract class MeshNetworkDb extends RoomDatabase {
 
     private static final String TAG = MeshNetworkDb.class.getSimpleName();
@@ -109,6 +109,7 @@ abstract class MeshNetworkDb extends RoomDatabase {
                             .addMigrations(MIGRATION_9_10)
                             .addMigrations(MIGRATION_10_11)
                             .addMigrations(MIGRATION_11_12)
+                            .addMigrations(MIGRATION_12_13)
                             .build();
                 }
 
@@ -397,6 +398,13 @@ abstract class MeshNetworkDb extends RoomDatabase {
         @Override
         public void migrate(@NonNull SupportSQLiteDatabase database) {
             migrateMeshNetwork11_12(database);
+        }
+    };
+
+    private static final Migration MIGRATION_12_13 = new Migration(12, 13) {
+        @Override
+        public void migrate(@NonNull SupportSQLiteDatabase database) {
+            migrateMeshNetwork12_13(database);
         }
     };
 
@@ -1039,5 +1047,9 @@ abstract class MeshNetworkDb extends RoomDatabase {
         }
         database.execSQL("DROP TABLE mesh_network");
         database.execSQL("ALTER TABLE mesh_network_temp RENAME TO mesh_network");
+    }
+    private static void migrateMeshNetwork12_13(@NonNull final SupportSQLiteDatabase database) {
+        database.execSQL("ALTER TABLE nodes ADD COLUMN mac_address TEXT DEFAULT ''");
+        database.execSQL("ALTER TABLE provisioner ADD COLUMN mac_address TEXT DEFAULT ''");
     }
 }

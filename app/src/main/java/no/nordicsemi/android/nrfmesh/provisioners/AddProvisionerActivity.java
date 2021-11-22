@@ -166,6 +166,7 @@ public class AddProvisionerActivity extends AppCompatActivity implements
                 final Provisioner provisioner = network.createProvisioner("nRF Mesh Provisioner", unicastRange, groupRange, sceneRange);
                 final BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
                 provisioner.setProvisionerName(adapter.getName());
+                provisioner.setProvisionerMacAddress(adapter.getAddress());
                 mViewModel.setSelectedProvisioner(provisioner);
             }
         }

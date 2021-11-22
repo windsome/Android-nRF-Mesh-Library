@@ -245,7 +245,8 @@
     <string name="provisioning_cancelled">配置过程取消了!</string>
 
     <string name="nrf_mesh_node">蓝牙铅封节点</string>
-    <string name="unicast">单播地址:</string>
+    <string name="unicast">系统编号:</string>
+    <string name="mac_address">mac地址:</string>
     <string name="company">厂商:</string>
     <string name="nordic_semiconductor_asa">Nordic Semiconductor ASA</string>
     <string name="elements">元件列表:</string>

@@ -44,6 +44,7 @@ abstract class UnprovisionedBaseMeshNode implements Parcelable {
     boolean isProvisioned;
     boolean isConfigured;
     protected String nodeName = "铅封";
+    protected String nodeMacAddress = "";
     byte[] provisionerPublicKeyXY;
     byte[] provisioneePublicKeyXY;
     byte[] sharedECDHSecret;
@@ -100,6 +101,15 @@ abstract class UnprovisionedBaseMeshNode implements Parcelable {
     public final void setNodeName(@NonNull final String nodeName) {
         if (!TextUtils.isEmpty(nodeName))
             this.nodeName = nodeName;
+    }
+
+    public String getNodeMacAddress() {
+        return nodeMacAddress;
+    }
+
+    public void setNodeMacAddress(String nodeMacAddress) {
+        if (!TextUtils.isEmpty(nodeMacAddress))
+            this.nodeMacAddress = nodeMacAddress;
     }
 
     public final int getUnicastAddress() {

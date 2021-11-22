@@ -246,6 +246,7 @@
 
     <string name="nrf_mesh_node">nRF Mesh Node</string>
     <string name="unicast">Address:</string>
+    <string name="mac_address">mac:</string>
     <string name="company">Company:</string>
     <string name="nordic_semiconductor_asa">Nordic Semiconductor ASA</string>
     <string name="elements">Elements:</string>
